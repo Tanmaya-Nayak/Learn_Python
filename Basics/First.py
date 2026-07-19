@@ -1,0 +1,8 @@
+print("Hello World")
+print(7)
+print(7.5)
+print(True)
+print("Hello", 1, 4.5, True)
+print("Hello", 1, 4.5, True, sep="/")
+print("Hello", end="-")
+print("Mew")
