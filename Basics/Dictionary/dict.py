@@ -118,3 +118,26 @@ d4 = {4: 7, 6: 8}
 
 d3.update(d4)
 print(d3)
+
+
+# Dictionary Comprehension
+
+# Print 1st 10 no. and their squares
+print({i: i**2 for i in range(1, 11)})
+
+# Using existing dictionary
+distances = {"delhi": 1000, "mumbai": 2000, "bangalore": 3000}
+print({key: 0.69 * value for (key, value) in distances.items()})
+
+# Using ZIP
+days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+temp_c = [30.6, 12.33, 23.43, 25.4, 45.33, 33.5, 34.34]
+print({i: j for (i, j) in zip(days, temp_c)})
+
+# use if condn.
+products = {"phone": 10, "laptop": 0, "charger": 32, "tablet": 0}
+print({i: j for (i, j) in products.items() if j > 0})
+
+# Nested Comprehension
+# print tables of no. from 2 - 4
+print({i: {j: i * j for j in range(1, 11)} for i in range(2, 5)})
