@@ -89,3 +89,44 @@ def outer():
 outer()
 print('main program')
 """
+
+
+# Python are 1st class function
+"""
+def func():
+    print("hello")
+
+
+a = func
+a()
+# ---------
+
+
+def modify(funct, num):
+    return funct(num)
+
+
+def square(num):
+    return num**2
+
+
+print(modify(square, 2))
+"""
+
+
+# Decorator simple example
+def my_decorator(func):
+    def wrapper():
+        print("##############")
+        func()
+        print("##############")
+
+    return wrapper
+
+
+def hello():
+    print("hello")
+
+
+a = my_decorator(hello)
+a()
