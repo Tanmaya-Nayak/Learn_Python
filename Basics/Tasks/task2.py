@@ -329,3 +329,58 @@ for i in range(1, Rng):
     else:
         pass
 """
+
+# Problem 14:Calculate the angle between the hour hand and minute hand.
+# Note: There can be two angles between hands; we need to print a minimum of two.
+# Also, we need to print the floor of the final result angle. For example,
+# if the final angle is 10.61, we need to print 10.
+#
+# Input:
+# H = 9 , M = 0
+# Output:
+# 90
+# Explanation:
+# The minimum angle between hour and minute hand when the time is 9 is 90 degress.
+
+"""
+import math
+
+H = int(input("H = "))
+M = int(input("M = "))
+
+if H == 12:
+    H = 0
+
+A1 = abs((H * 30 + M * 0.5) - (M * 6))  # abs(H * 5 - M) * 6 + M * 0.5
+A2 = 360 - A1  # 360 - abs(H * 5 - M) * 6 + M * 0.5
+
+if A1 <= A2:
+    print(math.floor(A1))
+else:
+    print(math.floor(A2))
+"""
+
+# Problem 15:Given two rectangles, find if the given two rectangles overlap or not.
+# A rectangle is denoted by providing the x and y coordinates of two points:
+# the left top corner and the right bottom corner of the rectangle.
+# Two rectangles sharing a side are considered overlapping.
+# (L1 and R1 are the extreme points of the first rectangle and L2 and R2 are the extreme points of the second rectangle).
+# Note: It may be assumed that the rectangles are parallel to the coordinate axis.
+
+L1x = int(input("L1 x: "))
+L1y = int(input("L1 y: "))
+
+R1x = int(input("R1 x: "))
+R1y = int(input("R1 y: "))
+
+L2x = int(input("L2 x: "))
+L2y = int(input("L2 y: "))
+
+R2x = int(input("R2 x: "))
+R2y = int(input("R2 y: "))
+
+
+if R1x < L2x or R2x < L1x or L1y < R2y or L2y < R1y:
+    print("Not Overlapping")
+else:
+    print("Overlapping")
