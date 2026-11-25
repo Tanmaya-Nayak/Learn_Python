@@ -452,27 +452,80 @@ print(S[:Rbound])
 # Problem 18: Find uncommon words from two Strings.
 #
 # Statement: Given two sentences as strings A and B. The task is to return a list of all uncommon words.
-# A word is uncommon if it appears exactly once in any one of the sentences, and does not appear in the other sentence. 
+# A word is uncommon if it appears exactly once in any one of the sentences, and does not appear in the other sentence.
 # Note: A sentence is a string of space-separated words. Each word consists only of lowercase letters.
 #
 # Example 1:
 #
 # Input:
 #
-# A = "apple banana mango" 
+# A = "apple banana mango"
 # B = "banana fruits mango"
 #
 # Output:
 #
 # ['apple', 'fruits']
 
+"""
 A = input("A: ")
-ALen = len(A)
 B = input("B: ")
-BLen = len(B)
 
-FLen = min(ALen,BLen)
+A_words = A.split()
+B_words = B.split()
 
-I = 0
-while I <=FLen:
+Uncommon = []
 
+for word in A_words:
+    if word not in B_words and A_words.count(word) == 1:
+        Uncommon.append(word)
+
+for word in B_words:
+    if word not in A_words and B_words.count(word) == 1:
+        Uncommon.append(word)
+
+print(Uncommon)
+"""
+
+# Problem 19: Word location in String.
+#
+# Statement: Find a location of a word in a given sentence.
+#
+# Example 1:
+#
+# Input:
+#
+# Sentence: We can learn data science through campusx mentorship program.
+#
+# word: campusx
+#
+# Output:
+#
+# Location of the word is 7.
+#
+# Note- Don't use index/find functions
+
+"""
+Sentence = input("Sentence: ")
+Word = input("Word: ")
+
+Words = Sentence.split()
+
+Count = 1
+
+for i in range(len(Words)):
+    if Words[i] == Word:
+        print("Location of the word is", Count)
+        break
+    Count += 1
+"""
+# Problem 20: Write a program that can remove all the duplicate characters from a string. User will provide the input.
+
+S = input("S: ")
+
+Result = ""
+
+for char in S:
+    if char not in Result:
+        Result += char
+
+print(Result)
