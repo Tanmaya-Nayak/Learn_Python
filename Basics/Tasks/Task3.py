@@ -223,3 +223,256 @@ print("HCF:", HCF)
 # Output:
 #
 # DSMP
+
+"""
+S = input("S: ")
+Len = len(S)
+
+print(S[0].upper(), end="")
+for i in range(Len):
+    if S[i] == " " and i + 1 < Len:
+        print(S[i + 1].upper(), end="")
+    else:
+        pass
+"""
+
+# Problem 12: Append second string in the middle of first string
+#
+# Input:
+#
+# campusx
+# data
+#
+# Output:
+#
+# camdatapusx
+
+"""
+S = input("S: ")
+Len = len(S)
+S1 = input("S1: ")
+
+
+if Len % 2 == 0:
+    Mid = int(Len / 2)
+else:
+    Mid = int((Len + 1) / 2)
+
+K = Mid
+
+for i in range(Mid):
+    if i == Mid:
+        print(S1, end="")
+    else:
+        print(S[i], end="")
+
+
+while K < Len:
+    print(S[K], end="")
+    K += 1
+"""
+
+"""
+S = input("S: ")
+Len = len(S)
+S1 = input("S1: ")
+
+Mid = Len // 2
+
+for i in range(Mid):
+    print(S[i], end="")
+
+print(S1, end="")
+
+K = Mid
+while K < Len:
+    print(S[K], end="")
+    K += 1
+"""
+
+# Problem 13:Given string contains a combination of the lower and upper case letters.
+# Write a program to arrange the characters of a string so that all lowercase letters should come first.
+#
+# Given:
+#
+# str1 = PyNaTive
+#
+# Expected Output:
+#
+# yaivePNT
+
+"""
+Str1 = input("str1: ")
+Len = len(Str1)
+
+for i in range(Len):
+    if Str1[i] >= "a" and Str1[i]<= "z":
+        print(Str1[i], end="")
+for i in range(Len):
+    if Str1[i] >= "A" and Str1[i] <= "Z":
+        print(Str1[i], end="")
+"""
+
+
+# Problem 14:Take a alphanumeric string input and print the sum and average of the digits that appear in the string,
+# ignoring all other characters.
+#
+# Input:
+#
+# hel123O4every093
+#
+# Output:
+#
+# Sum: 22
+# Avg: 2.75
+
+"""
+Alpnum = input("Alpnum: ")
+Len = len(Alpnum)
+Sum = 0
+Count = 0
+
+for i in range(Len):
+    if Alpnum[i] >= "a" and Alpnum[i] <= "z" or Alpnum[i] >= "A" and Alpnum[i] <= "Z":
+        pass
+    else:
+        Count += 1
+        Sum += int(Alpnum[i])
+
+Avg = Sum / Count
+print(Sum)
+print(Avg)
+"""
+
+"""
+Alpnum = input("Alpnum: ")
+Len = len(Alpnum)
+
+Sum = 0
+Count = 0
+
+for i in range(Len):
+    if Alpnum[i].isdigit():
+        Count += 1
+        Sum += int(Alpnum[i])
+
+Avg = Sum / Count
+
+print("Sum:", Sum)
+print("Avg:", Avg)
+"""
+
+# Problem 15: Removal of all characters from a string except integers
+#
+# Given:
+#
+# str1 = 'I am 25 years and 10 months old'
+#
+# Expected Output:
+#
+# 2510
+
+"""
+Str1 = input("str1: ")
+Len = len(Str1)
+
+for i in range(Len):
+    if Str1[i].isalpha() or Str1[i] == " ":
+        pass
+    else:
+        print(Str1[i], end="")
+"""
+
+
+# Problem 16: Check whether the string is Symmetrical.
+#
+# Statement: Given a string. the task is to check if the string is symmetrical or not. A string is said to be symmetrical if both the halves of the string are the same.
+#
+# Example 1:
+#
+# Input
+#
+# khokho
+#
+# Output
+#
+# The entered string is symmetrical
+
+"""
+S = input("S: ")
+Len = len(S)
+Mid = Len // 2
+
+if Len % 2 != 0:
+    print("The entered string is NOT symmetrical")
+elif S[0:Mid] == S[Mid:Len]:
+    print("The entered string is symmetrical")
+else:
+    print("The entered string is NOT symmetrical")
+"""
+
+#### Problem 17: Reverse words in a given String ####
+#
+# Statement: We are given a string and we need to reverse words of a given string.
+#
+# Example 1:
+#
+# Input:
+#
+# geeks quiz practice code
+#
+# Output:
+#
+# code practice quiz geeks
+#
+# Example 2:
+#
+# Input:
+#
+# my name is laxmi
+#
+# Output:
+#
+# laxmi is name my
+
+"""
+S = input("S: ")
+Len = -len(S)
+
+Rbound = None
+
+for i in range(-1, Len - 1, -1):
+    if S[i] == " ":
+        print(S[i + 1 : Rbound], end=" ")
+        Rbound = i
+
+print(S[:Rbound])
+"""
+
+# Problem 18: Find uncommon words from two Strings.
+#
+# Statement: Given two sentences as strings A and B. The task is to return a list of all uncommon words.
+# A word is uncommon if it appears exactly once in any one of the sentences, and does not appear in the other sentence. 
+# Note: A sentence is a string of space-separated words. Each word consists only of lowercase letters.
+#
+# Example 1:
+#
+# Input:
+#
+# A = "apple banana mango" 
+# B = "banana fruits mango"
+#
+# Output:
+#
+# ['apple', 'fruits']
+
+A = input("A: ")
+ALen = len(A)
+B = input("B: ")
+BLen = len(B)
+
+FLen = min(ALen,BLen)
+
+I = 0
+while I <=FLen:
+
