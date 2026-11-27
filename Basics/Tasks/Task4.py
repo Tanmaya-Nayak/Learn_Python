@@ -203,3 +203,247 @@ for i in num1:
 num3.sort()
 print(num3)
 """
+
+# Problem 7: Sort a list of alphanumeric strings based on product value of numeric character in it.
+# If in any string there is no numeric character take it's product value as 1.
+#
+# Input:
+#
+# ['1ac21', '23fg', '456', '098d','1','kls']
+#
+# Output:
+#
+# ['456', '23fg', '1ac21', '1', 'kls', '098d']
+
+"""
+Anum = ["1ac21", "23fg", "456", "098d", "1", "kls"]
+Num = []
+for i in Anum:
+    Prod = 1
+    if i.isalpha():
+        Num.append(1)
+    elif i.isdigit():
+        Num.append(int(i))
+
+    elif i.isalnum():
+        for j in range(len(i)):
+            if i[j].isdigit():
+                Prod *= int(i[j])
+        Num.append(Prod)
+    else:
+        continue
+
+Tempo = [[Anum[i], Num[i]] for i in range(len(Anum))]
+
+for i in range(len(Tempo)):
+    for j in range(i + 1, len(Tempo)):
+        if Tempo[i][1] < Tempo[j][1]:
+            Tempo[i], Tempo[j] = Tempo[j], Tempo[i]
+
+Output = [i[0] for i in Tempo]
+print(Output)
+"""
+
+# Problem 8: Split String of list on K character.
+#
+# Example :
+#
+# Input:
+#
+# ['CampusX is a channel', 'for data-science', 'aspirants.']
+#
+# Output:
+#
+# ['CampusX', 'is', 'a', 'channel', 'for', 'data-science', 'aspirants.']
+
+"""
+I = ["CampusX is a channel", "for data-science", "aspirants."]
+Fa = []
+for i in I:
+    Slt = i.split()
+    for j in range(len(Slt)):
+        Fa.append(Slt[j])
+print(Fa)
+"""
+
+# Problem 9: Convert Character Matrix to single String using string comprehension.
+#
+# Example 1:
+#
+# Input:
+#
+# [['c', 'a', 'm', 'p', 'u', 'x'], ['i', 's'], ['b', 'e', 's', 't'], ['c', 'h', 'a', 'n', 'n', 'e', 'l']]
+#
+# Output:
+#
+# campux is best channel
+
+"""
+I = [
+    ["c", "a", "m", "p", "u", "x"],
+    ["i", "s"],
+    ["b", "e", "s", "t"],
+    ["c", "h", "a", "n", "n", "e", "l"],
+]
+O = " ".join(["".join([I[j][i] for i in range(len(I[j]))]) for j in range(len(I))])
+print(O)
+"""
+"""
+I = [
+    ["c", "a", "m", "p", "u", "x"],
+    ["i", "s"],
+    ["b", "e", "s", "t"],
+    ["c", "h", "a", "n", "n", "e", "l"],
+]
+
+O = " ".join(["".join(word) for word in I])
+print(O)
+"""
+
+# Problem 10: Add Space between Potential Words.
+#
+# Example:
+#
+# Input:
+#
+# ['campusxIs', 'bestFor', 'dataScientist']
+#
+# Output:
+#
+# ['campusx Is', 'best For', 'data Scientist']
+
+"""
+I = ["campusxIs", "bestFor", "dataScientist"]
+J = []
+
+for i in I:
+    New = ""
+    for j in range(len(i)):
+        if i[j] >= "a" and i[j] <= "z":
+            New += i[j]
+        else:
+            New += " "
+            New += i[j]
+    J.append(New)
+print(J)
+"""
+
+# Problem 11: Write a program that can perform union operation on 2 lists
+#
+# Example:
+#
+# Input:
+#
+# [1,2,3,4,5,1]
+# [2,3,5,7,8]
+#
+# Output:
+#
+# [1,2,3,4,5,7,8]
+
+"""
+L1 = [1, 2, 3, 4, 5, 1]
+L2 = [2, 3, 5, 7, 8]
+L3 = []
+
+for i in L1:
+    for j in L2:
+        if (i != j and i not in L3) or (i == j and i not in L3):
+            L3.append(i)
+        elif j not in L3:
+            L3.append(j)
+    if i not in L3:
+        L3.append(i)
+L3.sort()
+print(L3)
+"""
+"""
+L1 = [1, 2, 3, 4, 5, 1]
+L2 = [2, 3, 5, 7, 8]
+L3 = []
+
+for i in L1:
+    if i not in L3:
+        L3.append(i)
+
+
+for i in L2:
+    if i not in L3:
+        L3.append(i)
+
+print(L3)
+"""
+
+# Problem 12: Write a program that can find the max number of each row of a matrix
+#
+# Example:
+#
+# Input:
+#
+# [[1,2,3],[4,5,6],[7,8,9]]
+#
+# Output:
+#
+# [3,6,9]
+
+"""
+# I = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+I = [[9, 3, 5], [4, 2, 1], [-5, -2, -9]]
+Mxelm = []
+
+for i in I:
+    Max = i[0]
+    for j in range(1, len(i)):
+        if Max < i[j]:
+            Max = i[j]
+    Mxelm.append(Max)
+print(Mxelm)
+"""
+
+# Problem 13: Write a list comprehension to print the following matrix
+#
+# [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+
+"""
+Output = [[i + 3 * j for i in range(3)] for j in range(3)]
+print(Output)
+"""
+
+# Problem 14: Write a list comprehension that can transpose a given matrix
+#
+# matrix = [
+# [1,2,3],
+# [4,5,6],
+# [7,8,9]
+# ]
+#
+# [1, 4, 7]
+# [2, 5, 8]
+# [3, 6, 9]
+
+"""
+Matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+Output = [[Matrix[i][j] for i in range(len(Matrix))] for j in range(len(Matrix))]
+
+for i in Output:
+    print(i)
+"""
+
+# Problem 15: Write a list comprehension that can flatten a nested list
+#
+# Input
+# matrix = [
+# [1,2,3],
+# [4,5,6],
+# [7,8,9]
+# ]
+#
+# Output:
+# [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+"""
+Matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+Output = [i[j] for i in Matrix for j in range(len(i))]
+#Output = [j for i in Matrix for j in i]
+print(Output)
+"""
